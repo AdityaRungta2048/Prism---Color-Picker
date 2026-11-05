@@ -40,6 +40,7 @@ export interface AppSettings {
   pinnedBg: string;
   isFirstInstall: boolean;
   colorBlindnessMode: ColorBlindnessMode;
+  ratingDismissed?: boolean;
 }
 
 export interface AppState {

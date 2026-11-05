@@ -1,11 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "Prism - Colour Picker",
-  "version": "1.0.0",
-  "description": "Advanced color picker: multi-format output, WCAG contrast, palette sessions, and magnifier loupe. 100% local, no data collection.",
+  "name": "Prism - Color Picker & Contrast Checker",
+  "version": "1.1.0",
+  "description": "Pick any color on a page in HEX, RGB, HSL or OKLCH. Check WCAG contrast, build palettes, export to Tailwind or CSS. 100% local.",
   "action": {
     "default_popup": "src/popup/index.html",
-    "default_title": "Prism - Colour Picker",
+    "default_title": "Prism - Color Picker",
     "default_icon": {
       "16": "public/icons/icon16.png",
       "32": "public/icons/icon32.png",
@@ -44,7 +44,7 @@
         "default": "Alt+Shift+C",
         "mac": "Alt+Shift+C"
       },
-      "description": "Activate Prism - Colour Picker eyedropper"
+      "description": "Activate Prism - Color Picker eyedropper"
     }
   },
   "host_permissions": [

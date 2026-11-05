@@ -86,6 +86,11 @@ export function App() {
     setState(prev => ({ ...prev, settings: { ...prev.settings, isFirstInstall: false } }));
   }, []);
 
+  const handleDismissRating = useCallback(async () => {
+    await sendMsg({ type: 'UPDATE_SETTINGS', settings: { ratingDismissed: true } });
+    setState(prev => ({ ...prev, settings: { ...prev.settings, ratingDismissed: true } }));
+  }, []);
+
   const handleSetPinnedBg = useCallback(async (hex: string) => {
     await sendMsg({ type: 'UPDATE_SETTINGS', settings: { pinnedBg: hex } });
     setState(prev => ({ ...prev, settings: { ...prev.settings, pinnedBg: hex } }));
@@ -179,6 +184,24 @@ export function App() {
         <Onboarding onDismiss={handleDismissOnboarding} />
       )}
 
+      {!showOnboarding && !state.settings.ratingDismissed && state.history.length >= 20 && (
+        <div class="onboarding-banner">
+          <div class="onboarding-footer">
+            <span>Enjoying Prism? A quick rating helps other designers find it.</span>
+            <a
+              class="onboarding-dismiss"
+              href="https://chromewebstore.google.com/detail/fnolbffnpeamdpjepbgmlajdeakfecfb/reviews"
+              target="_blank"
+              rel="noopener"
+              onClick={handleDismissRating}
+            >
+              Rate Prism
+            </a>
+            <button class="onboarding-close" onClick={handleDismissRating} title="Dismiss">×</button>
+          </div>
+        </div>
+      )}
+
       {/* Color display */}
       {dc ? (
         <>
@@ -266,6 +289,13 @@ export function App() {
 
           <div class="empty-shortcut">
             or press <kbd>Alt+Shift+C</kbd>
+          </div>
+
+          <div class="empty-shortcut">
+            More by AR Labs:{' '}
+            <a href="https://chromewebstore.google.com/detail/khjanpephopmklcgpjjimbdnpbnknnga" target="_blank" rel="noopener">Website Roast</a>
+            {' · '}
+            <a href="https://chromewebstore.google.com/detail/lagoddlfnhlflblgfakcenjonpkpkpmo" target="_blank" rel="noopener">Inbox Janitor</a>
           </div>
 
           {state.history.length > 0 && (
