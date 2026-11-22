@@ -1,0 +1,8 @@
+{
+  "appName": {
+    "message": "Prism - Pemilih Warna & Pemeriksa Kontras"
+  },
+  "appDesc": {
+    "message": "Ambil warna apa pun di layar dalam HEX, RGB, HSL, atau OKLCH. Cek kontras WCAG, buat palet, ekspor ke Tailwind atau CSS. 100% lokal."
+  }
+}

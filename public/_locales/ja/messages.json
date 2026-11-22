@@ -1,0 +1,8 @@
+{
+  "appName": {
+    "message": "Prism - カラーピッカー＆コントラストチェッカー"
+  },
+  "appDesc": {
+    "message": "画面上のどんな色もHEX・RGB・HSL・OKLCHで取得。WCAGコントラストのチェック、パレット作成、Tailwind／CSSへの書き出し。完全ローカル。"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "appName": {
+    "message": "Prism - Selettore colori e verifica del contrasto"
+  },
+  "appDesc": {
+    "message": "Preleva ogni colore dallo schermo in HEX, RGB, HSL o OKLCH. Verifica il contrasto WCAG, crea palette, esporta in Tailwind o CSS."
+  }
+}

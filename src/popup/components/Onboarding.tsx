@@ -23,7 +23,7 @@ export function Onboarding({ onDismiss }: Props) {
       <div class="onboarding-grid">
         <div class="ob-tip">
           <span class="ob-key">Alt+Shift+C</span>
-          <span>launches eyedropper without opening popup</span>
+          <span>opens Prism from any page, then Enter picks</span>
         </div>
         <div class="ob-tip">
           <span class="ob-key">Esc to cancel</span>
@@ -40,7 +40,7 @@ export function Onboarding({ onDismiss }: Props) {
       </div>
 
       <div class="onboarding-footer">
-        <span>Reload open tabs once so the eyedropper works on them.</span>
+        <span>Pick from anywhere on your screen, not just this tab.</span>
         <button class="onboarding-dismiss" onClick={onDismiss}>Got it →</button>
       </div>
     </div>

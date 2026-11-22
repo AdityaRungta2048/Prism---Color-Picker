@@ -1,0 +1,8 @@
+{
+  "appName": {
+    "message": "Prism - 取色器与对比度检查"
+  },
+  "appDesc": {
+    "message": "从屏幕任意位置取色，支持 HEX、RGB、HSL、OKLCH。检查 WCAG 对比度，创建调色板，导出为 Tailwind 或 CSS。完全本地运行。"
+  }
+}

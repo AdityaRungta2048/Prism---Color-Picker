@@ -1,0 +1,8 @@
+{
+  "appName": {
+    "message": "Prism - Pipette couleur et vérificateur de contraste"
+  },
+  "appDesc": {
+    "message": "Prélevez n'importe quelle couleur à l'écran en HEX, RGB, HSL ou OKLCH. Contraste WCAG, palettes, export Tailwind ou CSS."
+  }
+}

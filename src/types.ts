@@ -53,7 +53,6 @@ export interface AppState {
 
 // Messages between extension components
 export type ExtMessage =
-  | { type: 'ACTIVATE_PICKER' }
   | { type: 'COLOR_PICKED'; hex: string }
   | { type: 'PICKER_CANCELLED' }
   | { type: 'GET_STATE' }

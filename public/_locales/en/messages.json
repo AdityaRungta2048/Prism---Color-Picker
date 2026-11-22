@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Prism - Color Picker & Contrast Checker",
+    "description": "Extension name in Chrome and the Web Store (max 75 chars)."
+  },
+  "appDesc": {
+    "message": "Pick any color on your screen in HEX, RGB, HSL or OKLCH. Check WCAG contrast, build palettes, export to Tailwind or CSS. 100% local.",
+    "description": "Web Store summary (max 132 chars)."
+  }
+}

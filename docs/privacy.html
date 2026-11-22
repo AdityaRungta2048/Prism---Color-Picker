@@ -86,11 +86,10 @@
           third-party integrations.
         </p>
 
-        <h2>Screenshots</h2>
+        <h2>Picking colours</h2>
         <p>
-          Prism temporarily captures a screenshot of the currently visible tab when you activate the
-          eyedropper. This screenshot is used only within the extension to render the magnifier loupe and
-          sample pixel colours. It is never stored or transmitted.
+          Prism uses Chrome's built-in eyedropper. Chrome hands Prism only the one colour you click;
+          Prism never reads, captures or stores the pages you visit.
         </p>
 
         <h2>Permissions</h2>
@@ -98,11 +97,6 @@
           <thead><tr><th>Permission</th><th>Why it's needed</th></tr></thead>
           <tbody>
             <tr><td><code>storage</code></td><td>Saves your colour history, palette sessions, and settings locally.</td></tr>
-            <tr><td><code>activeTab</code></td><td>Required to capture a screenshot of the tab you are picking from.</td></tr>
-            <tr><td><code>clipboardWrite</code></td><td>Allows copying colour codes when you click a format chip.</td></tr>
-            <tr><td><code>scripting</code></td><td>Injects the eyedropper overlay into the active tab.</td></tr>
-            <tr><td><code>downloads</code></td><td>Used when you export a palette as a PNG image.</td></tr>
-            <tr><td><code>&lt;all_urls&gt;</code></td><td>Host permission — required so the eyedropper content script can run on any page you visit.</td></tr>
           </tbody>
         </table>
 

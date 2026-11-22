@@ -48,13 +48,14 @@ export function App() {
     return () => chrome.runtime.onMessage.removeListener(listener);
   }, []);
 
+  const [pickError, setPickError] = useState('');
+
   const handlePickColor = useCallback(async () => {
     if (!('EyeDropper' in window)) {
-      // No native EyeDropper — send to background which injects canvas picker
-      setPicking(true);
-      chrome.runtime.sendMessage({ type: 'ACTIVATE_PICKER' } satisfies ExtMessage, () => window.close());
+      setPickError('This browser has no built-in color picker. Update Chrome (or use Edge or Brave) to pick colors.');
       return;
     }
+    setPickError('');
 
     // EyeDropper MUST be called here in the popup context — it requires the user
     // activation from the button click. Calling it from a content-script message
@@ -169,6 +170,7 @@ export function App() {
         <button
           class={`pick-btn ${picking ? 'picking' : ''}`}
           onClick={handlePickColor}
+          autoFocus
           title="Pick color from anywhere on screen (Alt+Shift+C)"
         >
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
@@ -180,11 +182,13 @@ export function App() {
         </button>
       </header>
 
+      {pickError && <div class="pick-error" role="alert">{pickError}</div>}
+
       {showOnboarding && (
         <Onboarding onDismiss={handleDismissOnboarding} />
       )}
 
-      {!showOnboarding && !state.settings.ratingDismissed && state.history.length >= 20 && (
+      {!showOnboarding && !state.settings.ratingDismissed && state.history.length >= 5 && (
         <div class="onboarding-banner">
           <div class="onboarding-footer">
             <span>Enjoying Prism? A quick rating helps other designers find it.</span>
@@ -288,7 +292,7 @@ export function App() {
           </button>
 
           <div class="empty-shortcut">
-            or press <kbd>Alt+Shift+C</kbd>
+            or press <kbd>Alt+Shift+C</kbd>, then <kbd>Enter</kbd>
           </div>
 
           <div class="empty-shortcut">
@@ -296,6 +300,8 @@ export function App() {
             <a href="https://chromewebstore.google.com/detail/khjanpephopmklcgpjjimbdnpbnknnga" target="_blank" rel="noopener">Website Roast</a>
             {' · '}
             <a href="https://chromewebstore.google.com/detail/lagoddlfnhlflblgfakcenjonpkpkpmo" target="_blank" rel="noopener">Inbox Janitor</a>
+            {' · '}
+            <a href="https://chromewebstore.google.com/detail/eoaacdkiehhbjfebnnabbammefccioef" target="_blank" rel="noopener">Grabbit</a>
           </div>
 
           {state.history.length > 0 && (

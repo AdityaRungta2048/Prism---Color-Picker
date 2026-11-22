@@ -1,8 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "Prism - Color Picker & Contrast Checker",
-  "version": "1.1.0",
-  "description": "Pick any color on a page in HEX, RGB, HSL or OKLCH. Check WCAG contrast, build palettes, export to Tailwind or CSS. 100% local.",
+  "name": "__MSG_appName__",
+  "version": "1.2.0",
+  "description": "__MSG_appDesc__",
+  "default_locale": "en",
+  "minimum_chrome_version": "127",
   "action": {
     "default_popup": "src/popup/index.html",
     "default_title": "Prism - Color Picker",
@@ -23,20 +25,8 @@
     "service_worker": "src/background/index.ts",
     "type": "module"
   },
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": ["src/content/index.ts"],
-      "run_at": "document_idle",
-      "all_frames": false
-    }
-  ],
   "permissions": [
-    "storage",
-    "clipboardWrite",
-    "activeTab",
-    "scripting",
-    "downloads"
+    "storage"
   ],
   "commands": {
     "activate-eyedropper": {
@@ -44,10 +34,7 @@
         "default": "Alt+Shift+C",
         "mac": "Alt+Shift+C"
       },
-      "description": "Activate Prism - Color Picker eyedropper"
+      "description": "Open Prism to pick a color"
     }
-  },
-  "host_permissions": [
-    "<all_urls>"
-  ]
+  }
 }

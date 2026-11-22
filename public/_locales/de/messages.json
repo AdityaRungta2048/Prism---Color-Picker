@@ -1,0 +1,8 @@
+{
+  "appName": {
+    "message": "Prism - Farbpipette & Kontrastprüfer"
+  },
+  "appDesc": {
+    "message": "Jede Farbe am Bildschirm in HEX, RGB, HSL oder OKLCH aufnehmen. WCAG-Kontrast prüfen, Paletten bauen, als Tailwind/CSS exportieren."
+  }
+}

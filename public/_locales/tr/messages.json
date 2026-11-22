@@ -1,0 +1,8 @@
+{
+  "appName": {
+    "message": "Prism - Renk Seçici ve Kontrast Denetleyici"
+  },
+  "appDesc": {
+    "message": "Ekrandaki her rengi HEX, RGB, HSL veya OKLCH olarak alın. WCAG kontrastını denetleyin, palet oluşturun, Tailwind/CSS'e aktarın."
+  }
+}

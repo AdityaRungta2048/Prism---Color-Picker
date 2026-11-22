@@ -1,0 +1,8 @@
+{
+  "appName": {
+    "message": "Prism - कलर पिकर और कंट्रास्ट चेकर"
+  },
+  "appDesc": {
+    "message": "स्क्रीन से कोई भी रंग HEX, RGB, HSL या OKLCH में लें। WCAG कंट्रास्ट जांचें, पैलेट बनाएं, Tailwind या CSS में एक्सपोर्ट करें।"
+  }
+}

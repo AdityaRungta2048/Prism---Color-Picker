@@ -1,0 +1,8 @@
+{
+  "appName": {
+    "message": "Prism - 컬러 피커 & 대비 검사기"
+  },
+  "appDesc": {
+    "message": "화면의 어떤 색이든 HEX, RGB, HSL, OKLCH로 추출하세요. WCAG 대비 검사, 팔레트 만들기, Tailwind·CSS 내보내기. 100% 로컬."
+  }
+}

@@ -61,7 +61,10 @@ function exportPNG(colors: StoredColor[]): void {
   canvas.toBlob(blob => {
     if (!blob) return;
     const url = URL.createObjectURL(blob);
-    chrome.downloads.download({ url, filename: 'palette.png', saveAs: true });
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'palette.png';
+    a.click();
     setTimeout(() => URL.revokeObjectURL(url), 5000);
   }, 'image/png');
 }

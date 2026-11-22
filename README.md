@@ -8,9 +8,9 @@ A production-ready Chrome Extension (Manifest V3) for developers and designers. 
 
 | Feature | Details |
 |---|---|
-| **Custom eyedropper** | Canvas-based overlay with magnifier loupe + pixel grid |
-| **Magnifier loupe** | 15×15 pixel grid, 10× zoom, real-time crosshair |
-| **Arrow-key nudging** | ↑↓←→ moves cursor 1 px, Enter confirms, Esc cancels |
+| **Precise eyedropper** | Chrome's built-in picker with a magnifier and pixel grid; picks anywhere on screen |
+| **Keyboard flow** | `Alt+Shift+C` opens Prism with Pick focused, `Enter` starts picking, `Esc` cancels |
+| **No permission warnings** | Asks only for `storage`: no access to the sites you visit |
 | **Multi-format output** | HEX · RGB · HSL · HSB · CSS `oklch()` — all at once, one-click copy |
 | **Named color match** | Nearest CSS named color with perceptual ΔE distance |
 | **Tailwind match** | Nearest `bg-{color}-{shade}` class from the full Tailwind v3 palette |
@@ -58,8 +58,7 @@ npm run zip
 
 | Action | Gesture |
 |---|---|
-| Pick from any page | Click **Pick Color** in the popup *or* press `Alt+Shift+C` |
-| Nudge pixel | While loupe is active: `↑ ↓ ← →` |
+| Pick from any page | Click **Pick Color** in the popup *or* press `Alt+Shift+C` then `Enter` |
 | Confirm pick | `Enter` or mouse click |
 | Cancel | `Esc` |
 | Copy a format | Click any HEX / RGB / HSL / HSB / OKLCH chip |
@@ -90,7 +89,7 @@ Pick any pixel. Get HEX, RGB, HSL, HSB & oklch instantly. WCAG contrast, Tailwin
 Prism - Colour Picker is the color picker for developers and designers who want more than a hex code.
 
 **Pick**
-Activate the precision eyedropper with one click or Alt+Shift+C. A magnifier loupe with a pixel grid appears so you can pick exact pixels — even on anti-aliased edges. Nudge the cursor 1 px at a time with arrow keys before confirming.
+Click Pick Color (or press Alt+Shift+C, then Enter) and Chrome's precise eyedropper appears, with a magnifier and pixel grid so you can land on the exact pixel, even on anti-aliased edges. It picks from anywhere on your screen.
 
 **Instant multi-format output**
 Every picked color shows HEX, RGB, HSL, HSB, and CSS oklch() simultaneously. Click any format to copy it.
@@ -111,7 +110,7 @@ Toggle Protanopia, Deuteranopia, or Tritanopia simulation to check how your pick
 Every pick is saved locally. Label and tag colors (e.g. "brand-primary", #marketing) and search by hex, name, or tag.
 
 **Privacy first**
-Prism - Colour Picker is 100% local. It makes zero network requests and collects no analytics or personal data.
+Prism - Colour Picker is 100% local. It makes zero network requests, collects no analytics or personal data, and needs no access to the websites you visit.
 
 ### Privacy policy text
 
@@ -127,19 +126,14 @@ Prism - Colour Picker ("the extension") is a browser tool for picking and analyz
 
 **Network requests:** Prism - Colour Picker makes zero outbound network requests. It has no backend server, no telemetry, and no third-party integrations.
 
-**Screenshots:** Prism - Colour Picker temporarily captures a screenshot of the currently visible tab when you activate the eyedropper. This screenshot is used only within the extension to render the magnifier loupe and sample pixel colors. It is never stored or transmitted.
+**Picking colors:** Prism uses Chrome's built-in eyedropper. Chrome hands Prism only the one color you click; Prism never reads, captures or stores the pages you visit.
 
 **Permissions:**
-- `storage` — saves your color history, palette sessions, and settings locally.
-- `activeTab` — required to capture a screenshot of the tab you are picking from.
-- `clipboardWrite` — allows copying color codes when you click a format chip.
-- `scripting` — injects the eyedropper overlay into the active tab.
-- `downloads` — used when you export a palette as a PNG image.
-- `<all_urls>` (host permission) — required so the eyedropper content script can run on any page you visit.
+- `storage` — saves your color history, palette sessions, and settings locally. This is the only permission Prism requests.
 
 **Contact:** adityarungta2048@gmail.com
 
-Last updated: 2026-07-01
+Last updated: 2026-11-22
 
 ---
 
@@ -148,18 +142,12 @@ Last updated: 2026-07-01
 | Permission | Reason |
 |---|---|
 | `storage` | Persist color history, palette sessions, and user settings (pinned background, CB mode) locally — no external server. |
-| `activeTab` | Capture a screenshot of the active tab to power the custom eyedropper with magnifier loupe. |
-| `clipboardWrite` | Let the user copy a color format (HEX, RGB, etc.) by clicking a chip. |
-| `scripting` | Inject the eyedropper overlay content script into the active tab on demand. |
-| `downloads` | Save palette PNG exports to the user's Downloads folder. |
-| `<all_urls>` | The eyedropper content script must be able to run on any page the user is browsing. |
 
 ## Project structure
 
 ```
 src/
-  background/index.ts        Service worker — routes messages, captures screenshots
-  content/index.ts           Content script — custom canvas eyedropper with magnifier loupe
+  background/index.ts        Service worker — storage messages, keyboard shortcut
   popup/
     index.html               Popup entry HTML
     main.tsx                 Preact root mount
