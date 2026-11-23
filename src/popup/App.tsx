@@ -302,6 +302,8 @@ export function App() {
             <a href="https://chromewebstore.google.com/detail/lagoddlfnhlflblgfakcenjonpkpkpmo" target="_blank" rel="noopener">Inbox Janitor</a>
             {' · '}
             <a href="https://chromewebstore.google.com/detail/eoaacdkiehhbjfebnnabbammefccioef" target="_blank" rel="noopener">Grabbit</a>
+            {' · '}
+            <a href="https://chromewebstore.google.com/detail/lhblgcjhbejkkfedmbpmpflglidlkppg" target="_blank" rel="noopener">Tab Debt</a>
           </div>
 
           {state.history.length > 0 && (
