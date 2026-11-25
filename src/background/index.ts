@@ -9,6 +9,10 @@ chrome.commands.onCommand.addListener((command) => {
   if (command === 'activate-eyedropper') chrome.action.openPopup().catch(() => {});
 });
 
+// After an uninstall Chrome opens this page, so people can say in one click why they left.
+// Nothing is sent by the extension: it is an ordinary web page.
+chrome.runtime.setUninstallURL('https://adityarungta2048.github.io/Prism---Color-Picker/bye.html');
+
 // Message hub
 chrome.runtime.onMessage.addListener((msg: ExtMessage, sender, sendResponse) => {
   handleMessage(msg, sender, sendResponse);
